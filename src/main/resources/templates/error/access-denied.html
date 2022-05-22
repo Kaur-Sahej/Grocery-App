@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container"> 
+<header th:insert="fragments/header.html :: header"></header>
+<br/>
+
+<hr/>
+<h1>DEAR USER! YOU ARE NOT AUTHORIZED TO ACCESS THIS WEB PAGE</h1>
+
+</div>
+	
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>

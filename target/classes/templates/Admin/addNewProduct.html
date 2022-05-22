@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<br/><br/>
+<div class="container">
+
+<h2>Add new Product</h2>
+
+     <form method="post" th:action="@{/addNewProduct}" th:object="${Product}">
+       
+           <div class="form-group">
+                    <label for="username">productname</label>
+              
+               <input class="form-control"  type="text" th:field="*{productname}" />
+           </div>
+           <div class="form-group">
+                    <label for="price">Price</label>
+                
+               <input class="form-control"  type="text" th:field="*{price}" />
+           </div>
+           <div class="form-group">
+                    <label for="category">Category</label>
+               
+               <input class="form-control"  type="text" th:field="*{category}" />
+           </div>
+          
+           
+           <div class="form-group">
+           
+                   <input  class="btn btn-primary"  type="submit" value="Add Product" />
+              
+           </div>
+
+  </form>
+	
+
+<div th:replace="fragments/footer.html :: footer"></div>
+</div>
+
+</body>
+
+</html>

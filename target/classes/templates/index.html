@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+
+<h1>Hello user to the main root page!!!</h1>
+
+
+Go to the <a th:href="@{/user}">User Page</a><br><br>
+<!--Go to the <a th:href="@{/prince}">Prince Page</a>  -->
+<div sec:authorize="isAuthenticated()">
+		
+		User's Name: <span sec:authentication="name"></span>
+		<br> 
+		Roles: <span sec:authentication="principal.authorities"></span>
+		<br>
+		<br>		
+		
+		<div>
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+	
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>

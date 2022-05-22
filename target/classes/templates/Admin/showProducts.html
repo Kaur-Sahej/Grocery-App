@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+
+<header th:insert="fragments/header.html :: header"></header>
+
+<span th:text="${deletedsuccess}"> test</span>
+<br/><br/>
+
+
+CLick here to add new products: <a href="/admin/addProduct" type="button" class="btn btn-sm btn-danger" >Update price</a> 
+
+<h1>Grocery List </h1>
+
+<span>Hello Admin. These are the products available -</span>
+
+<br/><br/>
+
+<table th:if="${productDetails != null and !productDetails.empty}">
+<th>Product Name</th>
+<th>$ Price</th>
+<th>Category</th>
+<th>Delete Item</th>
+<th>Update Price </th>
+
+<tr th:each="product : ${productDetails}">
+
+<td th:text="${product.productname}">Frank</td>
+<td th:text="${product.price}">Frank</td>
+<td th:text="${product.category}">Frank</td>
+<td> <a th:href="@{'/admin/deleteProduct?prodid='+${product.productid}}" type="button" class="btn btn-sm btn-primary" >Delete</button> </td>
+<td><a th:href="@{'/admin/updatePrice?prodid='+${product.productid}}" type="button" class="btn btn-sm btn-danger" >Update price</button> </td>
+</tr>
+
+</table>
+
+<hr/>
+
+<hr>
+</div>	
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>

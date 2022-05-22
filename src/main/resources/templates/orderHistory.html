@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+
+<div class="container">
+<span th:text="${productAddedMessage}"> test</span>
+<br/><br/>
+
+<h1>Order History </h1>
+
+
+<table class="table" th:if="${orders != null and !orders.empty}">
+<tr><th>Order ID</th>
+<th>$ Order Date</th>
+<th>ReOrder</th>
+
+<tr th:each="product : ${orders}">
+
+<td th:text="${product.orderId}">Frank</td>
+<td th:text="${product.orderDate}">Frank</td>
+
+<td> <a th:href="@{'/reOrderbyHistory?orderCode='+${product.orderCode}}" type="button" class="btn btn-primary" >Reorder this</button> </td>
+</tr>
+</table>
+<hr>
+</div>
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>

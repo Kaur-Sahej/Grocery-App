@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<br/><br/>
+<div class="container">
+<h1>Hello ADMIN!!!</h1>
+
+New product has been added to list. <br/><br/>
+
+<hr>
+	
+
+<div th:replace="fragments/footer.html :: footer"></div>
+</div>
+
+</body>
+
+</html>

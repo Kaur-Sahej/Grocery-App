@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+
+<div class="container">
+<span th:text="${productAddedMessage}"> test</span>
+<br/><br/>
+
+<span th:text="${cartLink}"> test</span>
+
+
+
+<h1>Your Cart Items </h1>
+
+<div th:if="${cart != null and !cart.empty}">
+<table class="table">
+
+<th>Product Name</th>
+<th>Price</th>
+<th>Category</th>
+
+<tr th:each="product : ${cart}">
+<td th:text="${product.productname}">Frank</td>
+<td th:text="${product.price}">Frank</td>
+<td th:text="${product.category}">Frank</td>
+
+</tr>
+</table>
+
+<hr>
+
+Your total bill <span th:text="${totalPrice}"> test</span>$.
+
+
+<br/><br/>
+
+Your discounted bill <span th:text="${discountedPrice}"> test</span>$.
+
+<a href="/completeOrder" type="button" class="btn btn-sm btn-primary" >Complete your order.</a>
+</div>
+
+<div th:if="${cart == null or cart.empty}">
+
+Currently no items to display. Add something first in your cart and then come back on this page.
+</div>
+
+
+
+</div>
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>

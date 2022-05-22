@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+
+<div class="container">
+
+<span th:text="${deletedsuccess}"> test</span>
+<br/><br/>
+
+
+
+
+<h1>User List </h1>
+
+<span>Hello Admin. These are the users available -</span>
+
+<br/><br/>
+
+<table>
+<th>User</th>
+<th>role</th>
+
+
+
+
+<th:block th:each="row : ${resultMap}">
+ <tr>
+    <td th:text="${row.key}">Row No</td>
+     <td th:text="${row.value}">Row No</td>
+ </tr>
+ </th:block>
+ 
+</table>
+<hr>
+</div>
+	
+<div th:replace="fragments/footer.html :: footer"></div>
+
+</body>
+
+</html>
